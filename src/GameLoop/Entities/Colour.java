@@ -1,5 +1,5 @@
 package GameLoop.Entities;
 
 public enum Colour {
-    Red, Blue, Yellow, Black,
+    Blue, Red, Yellow, Black,
 }

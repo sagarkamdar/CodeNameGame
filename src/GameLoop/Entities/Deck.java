@@ -2,14 +2,10 @@ package GameLoop.Entities;
 
 import GameLoop.Graphics.Screen;
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.Random;
 import java.util.Vector;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 public class Deck {
 
@@ -37,22 +33,37 @@ public class Deck {
 
     }
 
+    /**
+     * Put the card at the bottom of the Deck
+     * @param card 
+     */
     public void discardInThis(Card card) {
         cards.add(card);
         ++size;
     }
 
+    /**
+     * Put the card on top of this Deck
+     * @param card 
+     */
     public void put(Card card) {
         cards.add(0, card);
         ++size;
     }
 
+    /**
+     * Draw one card from the top of this Deck
+     * @return 
+     */
     public Card draw() {
         assert (cards.isEmpty());
         --size;
         return cards.remove(0);
     }
 
+    /**
+     * Shuffle this Deck
+     */
     public void shuffle() {
         Random random = new Random();
         random.setSeed(System.nanoTime());

@@ -15,7 +15,7 @@ public class Card {
         this.colour = colour;
         this.word = word;
         x = y = 10;
-        card = new Sprite(100, 50, 0, 0, SpriteSheet.card);
+        card = new Sprite(120, 50, 0, 0, SpriteSheet.card);
         printWord();
     }
 

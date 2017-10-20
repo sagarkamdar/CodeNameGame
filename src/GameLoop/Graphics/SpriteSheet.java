@@ -14,7 +14,7 @@ public class SpriteSheet {
     public final int SIZEH;
     public int[] pixels;
 
-    public static SpriteSheet card = new SpriteSheet("graphics/card.png", 100, 50);
+    public static SpriteSheet card = new SpriteSheet("graphics/card.png", 120, 50);
     public static SpriteSheet letters = new SpriteSheet("graphics/letters.png", 48);
 
     public SpriteSheet(String path, int size) {

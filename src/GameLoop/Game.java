@@ -100,7 +100,7 @@ public class Game extends Canvas implements Runnable {
     public void update() {
         key.update();
         if (key.space) {
-            playArea.spreadGame();
+            playArea.newGame();
         }
         if (key.escape) {
             playArea.discardGame();
