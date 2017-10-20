@@ -7,7 +7,7 @@ public class Keyboard implements KeyListener {
 
     private boolean[] keys = new boolean[225];
     private boolean[] flags = new boolean[225];
-    public boolean up, down, left, right, space;
+    public boolean up, down, left, right, space, escape;
 
     public Keyboard() {
         for (int i = 0; i < 225; i++) {
@@ -20,7 +20,8 @@ public class Keyboard implements KeyListener {
         left = keys[KeyEvent.VK_LEFT] || keys[KeyEvent.VK_A];
         down = keys[KeyEvent.VK_DOWN] || keys[KeyEvent.VK_S];
         right = keys[KeyEvent.VK_RIGHT] || keys[KeyEvent.VK_D];
-        space = keys[KeyEvent.VK_SPACE];
+        escape = deBounce(KeyEvent.VK_ESCAPE);
+        space = deBounce(KeyEvent.VK_SPACE);
     }
     
     public boolean deBounce(int key) {

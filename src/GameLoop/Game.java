@@ -2,6 +2,7 @@ package GameLoop;
 
 import GameLoop.Entities.PlayArea;
 import GameLoop.Graphics.Screen;
+import GameLoop.Graphics.Sprite;
 import GameLoop.Input.Keyboard;
 import GameLoop.Input.Mouse;
 import java.awt.Canvas;
@@ -98,6 +99,18 @@ public class Game extends Canvas implements Runnable {
 
     public void update() {
         key.update();
+        if (key.space) {
+            playArea.spreadGame();
+        }
+        if (key.escape) {
+            playArea.discardGame();
+        }
+        if (key.down) {
+            playArea.placeCard();
+        }
+        if (key.up) {
+            playArea.removeCard();
+        }
         mouse.update();
         //System.out.println(posX + "   " + posY);
         //System.out.println(lastPress);
@@ -121,6 +134,7 @@ public class Game extends Canvas implements Runnable {
     }
 
     public static void main(String args[]) {
+        Sprite.loadLetters();
         Game game = new Game();
         game.frame.setResizable(false);
         //game.frame.setUndecorated(true);      //Uncomment to remove border of frame

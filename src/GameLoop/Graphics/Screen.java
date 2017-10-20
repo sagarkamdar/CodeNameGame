@@ -51,7 +51,7 @@ public class Screen {
                 }
             }
         }
-        pixels[x + 7 + (y + 7) * width] = 0xff0000;
+        //pixels[x + 7 + (y + 7) * width] = 0xff0000;
     }
 
     public void render() {
