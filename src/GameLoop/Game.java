@@ -1,5 +1,6 @@
 package GameLoop;
 
+import GameLoop.Entities.PlayArea;
 import GameLoop.Graphics.Screen;
 import GameLoop.Input.Keyboard;
 import GameLoop.Input.Mouse;
@@ -13,9 +14,9 @@ import javax.swing.JFrame;
 
 public class Game extends Canvas implements Runnable {
 
-    public static int width = 640;
-    public static int height = 360;
-    public static int scale = 2;
+    public static int width = 960;
+    public static int height = 540;
+    public static int scale = 1;
     public static double FPS = 60.0;
 
     private Thread thread;
@@ -25,6 +26,7 @@ public class Game extends Canvas implements Runnable {
     private Screen screen;
     private Keyboard key;
     private Mouse mouse;
+    private PlayArea playArea;
 
     private BufferedImage image = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
     private int[] pixels = ((DataBufferInt) image.getRaster().getDataBuffer()).getData();
@@ -37,6 +39,7 @@ public class Game extends Canvas implements Runnable {
         frame = new JFrame();
         key = new Keyboard();
         mouse = new Mouse();
+        playArea = new PlayArea();
 
         addKeyListener(key);
         addMouseListener(mouse);
@@ -108,6 +111,7 @@ public class Game extends Canvas implements Runnable {
         }
 
         screen.renderArena();
+        playArea.render(screen);
         System.arraycopy(screen.pixels, 0, pixels, 0, pixels.length);
 
         Graphics g = bs.getDrawGraphics();

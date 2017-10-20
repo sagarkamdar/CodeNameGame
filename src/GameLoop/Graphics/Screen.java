@@ -15,19 +15,19 @@ public class Screen {
         pixels = new int[width * height];
         pixelsArena = new int[width * height];
 
-        /*for (int y = 0; y < height; y++) {
+        for (int y = 0; y < height; y++) {
             for (int x = 0; x < width; x++) {
-                pixelsArena[x + y * width] = 0xffffff;     //Assign Background Image
+                pixelsArena[x + y * width] = 0xdcdcdc;     //Assign Background Image
             }
-        }*/
+        }
     }
 
     public void renderArena() {
-        /*for (int y = 0; y < height; y++) {
+        for (int y = 0; y < height; y++) {
             for (int x = 0; x < width; x++) {
                 pixels[x + y * width] = pixelsArena[x + y * width];
             }
-        }*/
+        }
         /*for (int y = 0; y < height; y++) {
             for (int x = 0; x < width; x++) {
                 if ((x/8 + y/8) % 2 == 0) {
@@ -43,9 +43,9 @@ public class Screen {
 
     public void renderSprite(Sprite sprite, int x, int y) {
         int color;
-        for (int yy = 0; yy < sprite.SIZE; yy++) {
-            for (int xx = 0; xx < sprite.SIZE; xx++) {
-                color = sprite.pixels[xx + yy * sprite.SIZE];
+        for (int yy = 0; yy < sprite.SIZEH; yy++) {
+            for (int xx = 0; xx < sprite.SIZEW; xx++) {
+                color = sprite.pixels[xx + yy * sprite.SIZEW];
                 if (color != 0xffffff) {
                     pixels[xx + x + (yy + y) * width] = color;
                 }
